@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paragon Innovation Challenge</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="mini-nav" aria-label="Navigasi utama">
+    <a href="index.html" class="brand-logo" aria-label="Paragon Technology & Innovation">
+      <img src="Logo.jpg" alt="Logo Paragon Technology & Innovation" loading="lazy" />
+    </a>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" aria-label="Pembuka">
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="hero-left">
+          <span class="hero-pill"></span>
+
+          <h1 class="hero-heading">
+  <span class="hero-highlight">[POKA-YOKE]</span> <br> REFERENSI JUDUL<br />
+  SUMBANG SARAN <br> SETIAP AREA
+</h1>
+
+          <p class="hero-subtitle">Smart Prevention — Cegah salah, percepat proses.</p>
+          <div class="hero-cta"></div>
+        </div>
+
+        <div class="hero-right" aria-hidden="true">
+          <div class="hero-illustration">
+            <img
+              src="HERO1.png"
+              alt="Tim Kaizen &amp; Learning"
+              class="hero-img-main"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORY SS -->
+    <section class="history-section" aria-labelledby="history-ss-title">
+      <div class="history-col">
+        <h2 class="ss-title" id="history-ss-title">REFERENSI POKAYOKE</h2>
+
+        <p class="ss-desc">
+          Referensi Judul Sumbang Saran setiap Area
+          <strong>[POKA-YOKE]</strong> dari program <strong>SS</strong>.
+        </p>
+
+        <div class="history-book" aria-label="History Program Sumbang Saran">
+          <div class="history-label"></div>
+
+          <div class="history-page-wrapper" aria-live="polite">
+            <article class="history-page active" data-page="8">
+              <div class="history-image">
+                <img src="8.png" alt="Halaman 1" loading="lazy" />
+              </div>
+            </article>
+
+            <article class="history-page" data-page="9">
+              <div class="history-image">
+                <img src="9.png" alt="Halaman 2" loading="lazy" />
+              </div>
+            </article>
+
+            <article class="history-page" data-page="10">
+              <div class="history-image">
+                <img src="10.png" alt="Halaman 3" loading="lazy" />
+              </div>
+            </article>
+
+            <article class="history-page" data-page="11">
+              <div class="history-image">
+                <img src="11.png" alt="Halaman 4" loading="lazy" />
+              </div>
+            </article>
+
+            <article class="history-page" data-page="12">
+              <div class="history-image">
+                <img src="12.png" alt="Halaman 5" loading="lazy" />
+              </div>
+            </article>
+
+            <article class="history-page" data-page=13>
+              <div class="history-image">
+                <img src="13.png" alt="Halaman 6" loading="lazy" />
+              </div>
+            </article>
+
+            <article class="history-page" data-page="14">
+              <div class="history-image">
+                <img src="14.png" alt="Halaman 7" loading="lazy" />
+              </div>
+            </article>
+          </div>
+
+          <div class="history-nav" aria-label="Pilih halaman history Sumbang Saran">
+            <button class="history-nav-btn active" type="button" data-target="8">Halaman 1</button>
+            <button class="history-nav-btn" type="button" data-target="9">Halaman 2</button>
+            <button class="history-nav-btn" type="button" data-target="10">Halaman 3</button>
+            <button class="history-nav-btn" type="button" data-target="11">Halaman 4</button>
+            <button class="history-nav-btn" type="button" data-target="12">Halaman 5</button>
+            <button class="history-nav-btn" type="button" data-target="13">Halaman 6</button>
+            <button class="history-nav-btn" type="button" data-target="14">Halaman 7</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= JS: HISTORY ================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const books = document.querySelectorAll(".history-book");
+
+      books.forEach((book) => {
+        const pages = Array.from(book.querySelectorAll(".history-page"));
+        const buttons = Array.from(book.querySelectorAll(".history-nav-btn"));
+        if (!pages.length || !buttons.length) return;
+
+        const setActive = (target) => {
+          pages.forEach((page) => page.classList.toggle("active", page.dataset.page === target));
+          buttons.forEach((btn) => btn.classList.toggle("active", btn.dataset.target === target));
+        };
+
+        // default
+        setActive(book.querySelector(".history-page.active")?.dataset.page || "1");
+
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () => setActive(btn.dataset.target));
+        });
+      });
+    });
+  </script>
+</body>
+</html>
